@@ -1,0 +1,113 @@
+.Form{
+    width: 60%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.form-heading{
+    text-align: center;
+}
+
+.form-heading h1{
+    color: rgba(114, 219, 115, 1);
+    font-family: 'Single Day', cursive;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.form-heading p{
+    margin-bottom: 40px;
+    font-size: 0.9rem;
+}
+
+.Form form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+form div{
+    width: 100%;
+}
+input{
+    background-color: rgba(41, 41, 41, 1);
+    padding: 0.7rem;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+input::placeholder{
+    color: rgba(124, 124, 124, 1);
+}
+
+#mobile::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    /* margin: 0; */
+}
+
+input:invalid{
+    border: 1px solid red;
+}
+
+.dataPermission{
+    font-size: 0.8rem;
+    color: rgba(124, 124, 124, 1);
+    display: flex;
+    gap: 0.5rem;
+    letter-spacing: 0.4px;
+}
+.dataPermission>input{
+    width: 12px;
+}
+
+.dataPermission-block{
+    margin: 5px 0;
+}
+
+#signUp{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 50px;
+    border: none;
+    background: rgba(114, 219, 115, 1);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+}
+
+.terms-and-policy{
+    font-size: 0.7rem;
+    color: rgba(124, 124, 124, 1);
+    letter-spacing: 0.2px;
+    font-family: 'Roboto', sans-serif;
+}
+.terms-and-policy span{
+    color: rgba(114, 219, 115, 1);
+}
+.terms-and-policy p{
+    line-height: 1rem;
+}
+.terms-and-policy p:first-child{
+    margin: 15px 0;
+}
+
+.error-message{
+    font-size: 0.8rem;
+    font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.4px;
+    color: rgba(255, 0, 0, 1);
+    margin-top: 5px;
+}

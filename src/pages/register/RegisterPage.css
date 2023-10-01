@@ -1,0 +1,31 @@
+.Register-page{
+    background-color: rgba(0, 0, 0, 1);
+    width: 100%;
+    height: 100vh;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.Register-page .left-side{
+    overflow: hidden;
+    position: relative;
+}
+
+.register-page-image{
+    width: 100%;  
+    height: 100%;
+    object-fit: cover;
+}
+
+.Register-page .left-side h1{
+    position: absolute;
+    bottom: 90px;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1.1px;
+}
