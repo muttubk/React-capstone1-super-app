@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState } from 'react'
 import './Form.css'
 //TODO: Hook to redirect to another page
 // import { useNavigate } from 'react-router-dom';
@@ -45,18 +45,6 @@ function Form() {
         }
     }
 
-    // Apply border styles as a side effect on input data validation
-    useEffect(()=>{
-        if(reqStatus){
-            Object.keys(formData).forEach(data=>{
-                const elem = document.getElementById(data).style
-                formData[data].length === 0
-                ? elem.border = '1px solid red'
-                : elem.border = 'none'
-            })
-        }
-    })
-
     //TODO: This will redirect to category page if user already Signed Up
     // useEffect(()=>{
     //     if(localStorage.getItem("userData")){
@@ -79,6 +67,7 @@ function Form() {
                         name='name'
                         value={formData.name}
                         onChange={handleChange}
+                        style={{border: (reqStatus && formData.name.length===0)? '1px solid red': 'none'}}
                     />
                     {
                         reqStatus &&
@@ -95,6 +84,7 @@ function Form() {
                         name='userName'
                         value={formData.userName}
                         onChange={handleChange}
+                        style={{border: (reqStatus && formData.userName.length===0)? '1px solid red': 'none'}}
                     />
                     {
                         reqStatus &&
@@ -111,6 +101,7 @@ function Form() {
                         name='email'
                         value={formData.email}
                         onChange={handleChange}
+                        style={{border: (reqStatus && formData.email.length===0)? '1px solid red': 'none'}}
                     />
                     {
                         reqStatus &&
@@ -127,6 +118,7 @@ function Form() {
                         name='mobile'
                         value={formData.mobile}
                         onChange={handleChange}
+                        style={{border: (reqStatus && formData.mobile.length===0)? '1px solid red': 'none'}}
                     />
                     {
                         reqStatus &&
