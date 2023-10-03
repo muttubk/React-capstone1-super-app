@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import './Form.css'
-//TODO: Hook to redirect to another page
-// import { useNavigate } from 'react-router-dom';
+// Hook to redirect to another page
+import { useNavigate } from 'react-router-dom';
 
 function Form() {
-    //TODO: Hook to redircet to another page
-    // const navigate = useNavigate();
+    // Hook to redircet to another page
+    const navigate = useNavigate();
 
     // State for form data
     const [formData, setFormData] = useState({
@@ -16,33 +16,124 @@ function Form() {
         dataPermission: false
     });
 
-    // State for whether all fileds are filled or not
-    const [reqStatus, setReqStatus] = useState(false)
+    // State for storing error messages
+    const [errors, setErrors] = useState({})
+
+    // To identify valid input data type
+    const validInputType = {
+        name: /^[a-zA-Z\s]*$/,
+        userName: /^[\w\d]*$/,
+        email: /^[\w-.]*@?([\w-]*\.)*[\w-]{0,4}$/,
+        mobile: /^[0-9]{0,10}$/
+    }
 
     // Input change handler
     const handleChange = (e) => {
         const target = e.target
         const name = target.name
         const value = target.type === 'checkbox' ? target.checked : target.value
-        setFormData({
-            ...formData, [name]: value
-        })
+        const pattern = validInputType[name]
+        if (target.type === 'checkbox') {
+            setFormData({
+                ...formData, [name]: value
+            })
+            setErrors({
+                ...errors, [name]: ''
+            })
+        }
+        else if (pattern.test(value)) {
+            setFormData({
+                ...formData, [name]: value
+            })
+            setErrors({
+                ...errors, [name]: ''
+            })
+        } else {
+            setErrors({
+                ...errors, [name]: 'Invalid input type detected'
+            })
+        }
     }
 
     // Form submit handler
     const handleSubmit = (e) => {
         e.preventDefault();
+        validateData();
         let dataKeys = Object.keys(formData)
-        let required = (dataKeys.some(data=>formData[data].length===0)) 
-                        || !(formData.dataPermission)
-        required? setReqStatus(true) : setReqStatus(false)
-        if(!required){
-            // console.log(formData)
-            // Can also pass formData.userName as key to store multiple users data
+        let isValid = dataKeys.every(data => errors[data] === '')
+        if (isValid) {
+            console.log(formData)
             localStorage.setItem("userData", JSON.stringify(formData))
-            //TODO: To redirect to catogory page on successful Sign Up
-            // navigate('/category')
+            // To redirect to catogory page on successful Sign Up
+            navigate('/select-category')
+        } else {
+            console.log(errors)
         }
+    }
+
+    // Object for storing validating functions for each field
+    const validate = {
+        name: (() => {
+            if (formData.name.length === 0) {
+                return 'Field is required'
+            } else if (formData.name.length < 3) {
+                return 'Minmum length required is 3'
+            } else {
+                return ''
+            }
+        })(),
+        userName: (() => {
+            if (formData.userName.length === 0) {
+                return 'Field is reqiured'
+            } else if (formData.userName.length < 3) {
+                return 'Minimum length required is 3'
+            } else {
+                return ''
+            }
+        })(),
+        email: (() => {
+            if (formData.email.length === 0) {
+                return 'Field is required'
+            } else if (!(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email))) {
+                return 'Enter valid email address'
+            } else {
+                return ''
+            }
+        })(),
+        mobile: (() => {
+            if (formData.mobile.length === 0) {
+                return 'Field is required'
+            } else if (formData.mobile.length < 10) {
+                return 'Enter valid 10 digits number'
+            } else {
+                return ''
+            }
+        })(),
+        dataPermission: (() => {
+            if (formData.dataPermission === false) {
+                return 'Check this box if you want to proceed'
+            } else {
+                return ''
+            }
+        })()
+    }
+
+    // To validate every data
+    const validateData = () => {
+        let newErrors = {}
+        let dataKeys = Object.keys(formData)
+        dataKeys.forEach(data => {
+            newErrors[data] = validate[data]
+        })
+        setErrors(newErrors)
+    }
+
+    // For real-time validation of corresponding field
+    const handleBlur = (e) => {
+        const { name } = e.target
+        setErrors({
+            ...errors, [name]: validate[name]
+        })
     }
 
     //TODO: This will redirect to category page if user already Signed Up
@@ -67,14 +158,12 @@ function Form() {
                         name='name'
                         value={formData.name}
                         onChange={handleChange}
-                        style={{border: (reqStatus && formData.name.length===0)? '1px solid red': 'none'}}
+                        onBlur={handleBlur}
+                        style={{ border: (errors.name) ? '1px solid red' : '' }}
                     />
                     {
-                        reqStatus &&
-                        formData.name.length === 0 &&
-                        <p className='error-message'>
-                            Field is required
-                        </p>}
+                        <p className='error-message'>{errors.name}</p>
+                    }
                 </div>
                 <div>
                     <input
@@ -84,48 +173,41 @@ function Form() {
                         name='userName'
                         value={formData.userName}
                         onChange={handleChange}
-                        style={{border: (reqStatus && formData.userName.length===0)? '1px solid red': 'none'}}
+                        onBlur={handleBlur}
+                        style={{ border: (errors.userName) ? '1px solid red' : '' }}
                     />
                     {
-                        reqStatus &&
-                        formData.userName.length === 0 &&
-                        <p className='error-message'>
-                            Field is required
-                        </p>}
+                        <p className='error-message'>{errors.userName}</p>
+                    }
                 </div>
                 <div>
                     <input
-                        type="email"
                         placeholder='Email'
                         id='email'
                         name='email'
                         value={formData.email}
                         onChange={handleChange}
-                        style={{border: (reqStatus && formData.email.length===0)? '1px solid red': 'none'}}
+                        onBlur={handleBlur}
+                        style={{ border: (errors.email) ? '1px solid red' : '' }}
                     />
                     {
-                        reqStatus &&
-                        formData.email.length === 0 &&
-                        <p className='error-message'>
-                            Field is required
-                        </p>}
+                        <p className='error-message'>{errors.email}</p>
+                    }
                 </div>
                 <div>
                     <input
-                        type="number"
+                        type="text"
                         placeholder='Mobile'
                         id='mobile'
                         name='mobile'
                         value={formData.mobile}
                         onChange={handleChange}
-                        style={{border: (reqStatus && formData.mobile.length===0)? '1px solid red': 'none'}}
+                        onBlur={handleBlur}
+                        style={{ border: (errors.mobile) ? '1px solid red' : '' }}
                     />
                     {
-                        reqStatus &&
-                        formData.mobile.length === 0 &&
-                        <p className='error-message'>
-                            Field is required
-                        </p>}
+                        <p className='error-message'>{errors.mobile}</p>
+                    }
                 </div>
                 <div className='dataPermission-block'>
                     <div className='dataPermission'>
@@ -135,17 +217,15 @@ function Form() {
                             name='dataPermission'
                             value={formData.dataPermission}
                             onChange={handleChange}
+                            onBlur={handleBlur}
                         />
                         <label htmlFor='dataPermission' >
                             Share my registration data with Superapp
                         </label>
                     </div>
                     {
-                        reqStatus &&
-                        formData.dataPermission === false &&
-                        <p className='error-message'>
-                            Check this box if you want to proceed
-                        </p>}
+                        <p className='error-message'>{errors.dataPermission}</p>
+                    }
                 </div>
                 <button id='signUp' type='submit'>SIGN UP</button>
             </form>

@@ -55,10 +55,6 @@ input::placeholder{
     /* margin: 0; */
 }
 
-input:invalid{
-    border: 1px solid red;
-}
-
 .dataPermission{
     font-size: 0.8rem;
     color: rgba(124, 124, 124, 1);
