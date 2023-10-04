@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './SelectCategory.css'
 
 import errorSign from "../../assets/images/warning-sign.svg"
@@ -40,8 +40,14 @@ function SelectCategory() {
     }
 
     // For storing selected categories list
-    const selectedCategory = defaultCategory.filter(category => category.isSelected).map(category => category.value)
-
+    // const selectedCategory = defaultCategory.filter(category => category.isSelected).map(category => category.value)
+    // OR:
+    const [selectedCategory, setSelectedCategory] = useState([])
+    useEffect(() => {
+        const newcat = defaultCategory.filter(category => category.isSelected).map(category => category.value)
+        setSelectedCategory(newcat)
+    }, [defaultCategory])
+    
     // For storing selected categories list in local storage and redirect to next page
     const handleNextPage = () => {
         if (selectedCategory.length > 2) {
