@@ -1,0 +1,26 @@
+.CategoryCard{
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.category-label{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.category-image{
+    width: 100%;
+    height: 70%;
+    border-radius: 10px;
+}
+.category-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
