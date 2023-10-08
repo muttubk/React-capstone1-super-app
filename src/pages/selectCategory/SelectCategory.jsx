@@ -53,7 +53,7 @@ function SelectCategory() {
         if (selectedCategory.length > 2) {
             console.log(selectedCategory)
             localStorage.setItem('selectedCategory', JSON.stringify(selectedCategory))
-            navigate('/home')
+            navigate('/')
         }
         else {
             setError(true)

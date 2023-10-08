@@ -1,0 +1,69 @@
+.WeatherCard{
+    width: 100%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgba(16, 23, 68, 1);
+}
+
+.dateAndTime_container{
+    background-color: rgba(255, 74, 222, 1);
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 5px 0;
+}
+
+.weather{
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    align-items: center;
+}
+.weather hr{
+    height: 40%;
+}
+
+.conditionIcon{
+    width: 70px;
+}
+.pressureIcon{
+    transform: scale(0.7);
+}
+.windIcon{
+    transform: scale(0.7);
+}
+.humidityIcon{
+    transform: scale(0.6);
+    margin: auto;
+}
+
+.condition{
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.temperature{
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.pressure, .windspeed, .humidity{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    line-height: 140%;
+}
+
+.windspeed{
+    margin-bottom: 10px;
+}

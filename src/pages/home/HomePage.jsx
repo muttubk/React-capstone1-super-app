@@ -1,15 +1,21 @@
 import React from 'react'
 import './HomePage.css'
 
+import ProfileCard from '../../components/profile-card/ProfileCard'
+import WeatherCard from '../../components/weather-card/WeatherCard'
+import NewsCard from '../../components/news-card/NewsCard'
+
 function HomePage() {
 
-    const selectedCategory = JSON.parse(localStorage.getItem('selectedCategory'))
     return (
         <div className='HomePage'>
-            <h1>This is Home Page</h1>
-            {
-                selectedCategory.map(category=><h2 key={category}>{category}</h2>)
-            }
+            <div className='left-side'>
+                <ProfileCard/>
+                <WeatherCard/>
+            </div>
+            <div className='right-side'>
+                <NewsCard />
+            </div>
         </div>
     )
 }

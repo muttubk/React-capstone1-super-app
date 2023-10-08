@@ -1,0 +1,70 @@
+.user-profile-card{
+    background-color: rgba(87, 70, 234, 1);
+    display: flex;
+    width: 100%;
+    height: 65%;
+    border: none;
+    border-radius: 20px;
+    padding: 25px;
+    gap: 35px;
+}
+
+#profile-picture{
+    height: 100%;
+}
+
+.profile-right{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding: 35px 0;
+}
+
+.user-details{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.name, .email{
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.7px;
+}
+.userName{
+    font-size: 2.3rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+
+.selected-categories{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    overflow-y: scroll;
+    justify-self: center;
+    padding-right: 10px;
+}
+.selected-categories::-webkit-scrollbar{
+    width: 6px;
+    height: 100%;
+    background-color: rgba(159, 148, 255, 0.3);
+    border-radius: 5px;
+}
+.selected-categories::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom right, #fff34d 0%, #ff4c1a 100%);
+    border-radius: 5px;
+}
+
+.category{
+    background-color: rgba(159, 148, 255, 1);
+    width: 100%;
+    max-width: 180px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.6px;
+}
