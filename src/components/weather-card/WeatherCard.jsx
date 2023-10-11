@@ -8,7 +8,10 @@ import humidityIcon from '../../assets/images/Group.svg'
 
 function WeatherCard() {
 
+    // For stroing weather data
     const [weatherData, setWeatherData] = useState()
+
+    // Function for weather API call
     const fetchData = () => {
         fetch("http://api.weatherapi.com/v1/current.json?key=ce8139316cbe49de9a370939230710&q=Mudhol&aqi=no")
             .then(response => response.json())
@@ -21,13 +24,17 @@ function WeatherCard() {
                 console.log(err.message);
             })
     }
+
+    // For storing time
     const [time, setTime] = useState(new Date())
+
+    // Fetching weather data from weather API
     useEffect(() => {
-        
-        const timer = setInterval(()=> {setTime(new Date()); fetchData()}, 1000)
-        return function cleanup(){
-                clearInterval(timer)
-            }
+        fetchData()
+        const timer = setInterval(() => { setTime(new Date()); fetchData() }, 60000)
+        return function cleanup() {
+            clearInterval(timer)
+        }
     }, [])
 
 
@@ -35,10 +42,13 @@ function WeatherCard() {
         <div className={styles.WeatherCard}>
             <div className={styles.dateAndTime_container}>
                 <div className={styles.date}>
-                    {(time.toLocaleDateString()).replaceAll('/', '-')}
+                    {time.toLocaleDateString().replaceAll('/', '-')}
                 </div>
                 <div className={styles.time}>
-                    {time.toLocaleTimeString().slice(0,5)+time.toLocaleTimeString().slice(8)}
+                    {(time.getHours() % 12) < 10 ? '0' + (time.getHours() % 12) : (time.getHours() % 12)}
+                    :
+                    {time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes()}
+                    {' ' + (time.getHours() < 12 ? 'AM' : 'PM')}
                 </div>
             </div>
             <div className={styles.weather}>

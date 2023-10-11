@@ -1,9 +1,9 @@
 .WeatherCard{
     width: 100%;
-    height: 35%;
+    height: 40%;
     display: flex;
     flex-direction: column;
-    border-radius: 20px;
+    border-radius: 10px;
     overflow: hidden;
     background-color: rgba(16, 23, 68, 1);
 }
@@ -12,7 +12,7 @@
     background-color: rgba(255, 74, 222, 1);
     display: flex;
     justify-content: space-evenly;
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: 500;
     letter-spacing: 1px;
     padding: 5px 0;
@@ -23,7 +23,7 @@
     flex-grow: 1;
     display: flex;
     justify-content: space-evenly;
-    padding: 10px 0;
+    padding: 3px 0;
     align-items: center;
 }
 .weather hr{
@@ -31,39 +31,37 @@
 }
 
 .conditionIcon{
-    width: 70px;
+    width: 40px;
 }
 .pressureIcon{
-    transform: scale(0.7);
+    transform: scale(0.4);
 }
 .windIcon{
-    transform: scale(0.7);
+    transform: scale(0.4);
 }
 .humidityIcon{
-    transform: scale(0.6);
+    transform: scale(0.4);
     margin: auto;
 }
 
 .condition{
-    font-size: 1.1rem;
+    font-size: 0.7rem;
     text-align: center;
 }
 
 .temperature{
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
 }
 
 .pressure, .windspeed, .humidity{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 8px;
-    justify-content: space-between;
+    display: flex;
     align-items: center;
-    font-size: 0.9rem;
-    line-height: 140%;
+    font-size: 0.6rem;
+    line-height: 120%;
 }
 
-.windspeed{
-    margin-bottom: 10px;
+.left, .middle, .right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

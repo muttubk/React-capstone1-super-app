@@ -23,7 +23,7 @@ function Form() {
     const validInputType = {
         name: /^[a-zA-Z\s]*$/,
         userName: /^[\w\d]*$/,
-        email: /^[\w-.]*@?([\w-]*\.)*[\w-]{0,4}$/,
+        email: /^([a-zA-Z0-9._%-]*@?[a-zA-Z0-9.-]*\.?[a-zA-Z]*)$/,
         mobile: /^[0-9]{0,10}$/
     }
 
@@ -94,7 +94,7 @@ function Form() {
         email: (() => {
             if (formData.email.length === 0) {
                 return 'Field is required'
-            } else if (!(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email))) {
+            } else if (!(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(formData.email))) {
                 return 'Enter valid email address'
             } else {
                 return ''
@@ -185,6 +185,7 @@ function Form() {
                         placeholder='Email'
                         id='email'
                         name='email'
+                        type='email'
                         value={formData.email}
                         onChange={handleChange}
                         onBlur={handleBlur}

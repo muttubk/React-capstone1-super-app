@@ -9,7 +9,7 @@
 
 .news-background-image{
     width: 100%;
-    height: 60%;
+    height: 65%;
     background-color: blue;
     position: relative;
 }
@@ -25,30 +25,30 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 15px;
+    padding: 15px 20px;
 }
 .news-info .title{
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1.1rem;
+    font-weight: 400;
     line-height: 125%;
     letter-spacing: 1px;
     margin-bottom: 10px;
 }
 
 .news-info .time{
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 500;
     letter-spacing: 0.6px;
     line-height: 142%;
 }
 
 .news-content{
     width: 100%;
-    height: 40%;
+    height: 35%;
     color: rgba(39, 39, 39, 1);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 400;
-    padding: 25px;
+    padding: 15px 30px;
     line-height: 162%;
     text-align: justify;
     overflow: scroll;
