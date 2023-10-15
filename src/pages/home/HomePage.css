@@ -4,7 +4,8 @@
     font-family: 'Roboto', sans-serif;
     color: rgba(255, 255, 255, 1);
     background: rgba(0, 0, 0, 1);
-    padding: 50px 70px;
+    padding: 50px;
+    padding-bottom: 70px;
     display: flex;
     gap: 40px;
 }
@@ -38,4 +39,24 @@
 
 .timer-container{
     height: 40%;
+}
+
+.browse-button{
+    background-color: rgba(20, 138, 8, 1);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    font-family: 'DM Sans', sans-serif;
+    width: 110px;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    right: 50px;
+    bottom: 20px;
+}
+.browse-button:active{
+    background-color: rgba(20, 138, 8, 0.8);
 }

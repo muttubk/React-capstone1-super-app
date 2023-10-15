@@ -1,0 +1,42 @@
+.EntertainmentPage{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000;
+    color: white;
+    padding: 50px;
+    padding-top: 25px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name{
+    color: rgba(114, 219, 115, 1);
+    font-family: 'Single Day', cursive;
+    font-size: 2rem;
+    font-weight: 400;
+    align-self: flex-start;
+}
+
+.profileLogo{
+    transform: scale(0.7);
+    cursor: pointer;
+}
+
+/* Categories list */
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.list h1{
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+}

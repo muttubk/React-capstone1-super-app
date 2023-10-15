@@ -7,7 +7,7 @@ import alarmRingtone from '../../assets/audio/alarm-ringtone.mp3'
 // For storing props values of CountdownCircleTimer component
 const timerProps = {
     isPlaying: true,
-    size: 140,
+    size: 130,
     strokeWidth: 5,
     colors: "#FF6A6A",
     trailColor: '#181D37',
