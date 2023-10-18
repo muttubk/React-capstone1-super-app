@@ -10,15 +10,14 @@ function NewsCard() {
 
     // For storing time
     const [time, setTime] = useState()
-
     // fetching random news data from news API
     useEffect(() => {
-        const random = parseInt(20 * Math.random())
-        fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=b7d6777421d0486f8cde9795074ca017")
+        const random = parseInt(10 * Math.random())
+        fetch("https://newsdata.io/api/1/news?apikey=pub_31354efb07134e9c90fe0d1e2feb30d570d58&q=pizza")
             .then(response => response.json())
             .then(data => {
-                setNewsData(data.articles[random]);
-                // console.log(data.articles)
+                setNewsData(data.results[random]);
+                console.log(data.results[random])
             })
         const timer = setInterval(() => setTime(new Date()))
 
@@ -33,8 +32,8 @@ function NewsCard() {
                 newsData ?
                     <div className='NewsCard'>
                         <div className='news-background-image'>
-                            <img src={newsData.urlToImage ?
-                                newsData.urlToImage :
+                            <img src={newsData.image_url ?
+                                newsData.image_url :
                                 newsBackground} alt=''
                             />
                             <div className='news-info'>

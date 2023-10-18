@@ -13,7 +13,7 @@ function WeatherCard() {
 
     // Function for weather API call
     const fetchData = () => {
-        fetch("http://api.weatherapi.com/v1/current.json?key=ce8139316cbe49de9a370939230710&q=Mudhol&aqi=no")
+        fetch("https://api.weatherapi.com/v1/current.json?key=ce8139316cbe49de9a370939230710&q=Mudhol&aqi=no")
             .then(response => response.json())
             .then(data => {
                 // console.log(data);

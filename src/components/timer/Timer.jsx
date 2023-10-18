@@ -50,7 +50,6 @@ function Timer() {
             const total = seconds + minutes * 60 + hours * 3600
             if (total !== 0) {
                 setTotalTime(total)
-                console.log(total, totalTime)
                 setStarted(true)
                 setSeconds(0)
                 setMinutes(0)
