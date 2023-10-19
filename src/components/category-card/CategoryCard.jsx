@@ -1,5 +1,5 @@
 import React from 'react'
-import './CategoryCard.css'
+import styles from './CategoryCard.module.css'
 
 function CategoryCard(props) {
     // For changing border on selection
@@ -10,12 +10,12 @@ function CategoryCard(props) {
         props.selectCategory(props.value, true)
     }
     return (
-        <div className='CategoryCard'
+        <div className={styles.CategoryCard}
             style={{ background: props.background, border: border }}
             onClick={handleClick}
         >
-            <h1 className='category-label'>{props.label}</h1>
-            <div className='category-image'>
+            <h1 className={styles.categoryLabel}>{props.label}</h1>
+            <div className={styles.categoryImage}>
                 <img src={props.image} alt='' />
             </div>
         </div>

@@ -1,4 +1,4 @@
-.user-profile-card{
+.userProfileCard{
     background-color: rgba(87, 70, 234, 1);
     display: flex;
     width: 100%;
@@ -9,17 +9,17 @@
     gap: 25px;
 }
 
-.profile-left{
+.profileLeft{
     width: 30%;
     height: 100%;
 }
 
-#profile-picture{  
+#profilePicture{  
     height: 100%;
     width: 100%;
 }
 
-.profile-right{
+.profileRight{
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@
     padding: 15px 0;
 }
 
-.user-details{
+.userDetails{
     display: flex;
     flex-direction: column;
     gap: 3px;
@@ -44,7 +44,7 @@
     letter-spacing: 1px;
 }
 
-.selected-categories{
+.selectedCategories{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -52,13 +52,13 @@
     overflow-y: scroll;
     padding-right: 5px;
 }
-.selected-categories::-webkit-scrollbar{
+.selectedCategories::-webkit-scrollbar{
     width: 6px;
     height: 100%;
     background-color: rgba(159, 148, 255, 0.3);
     border-radius: 5px;
 }
-.selected-categories::-webkit-scrollbar-thumb {
+.selectedCategories::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom right, #fff34d 0%, #ff4c1a 100%);
     border-radius: 5px;
 }

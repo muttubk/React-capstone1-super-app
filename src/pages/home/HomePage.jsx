@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './HomePage.css'
+import styles from './HomePage.module.css'
 
 import ProfileCard from '../../components/profile-card/ProfileCard'
 import WeatherCard from '../../components/weather-card/WeatherCard'
@@ -33,25 +33,25 @@ function HomePage() {
 
     if (userSignedUp) {
         return (
-            <div className='HomePage'>
-                <div className='left-side'>
-                    <div className='left-upper'>
-                        <div className='profile-weather-container'>
+            <div className={styles.HomePage}>
+                <div className={styles.leftSide}>
+                    <div className={styles.leftUpper}>
+                        <div className={styles.profileWeatherContainer}>
                             <ProfileCard />
                             <WeatherCard />
                         </div>
-                        <div className='notes-container'>
+                        <div className={styles.notesContainer}>
                             <Notes />
                         </div>
                     </div>
-                    <div className='timer-container'>
+                    <div className={styles.timerContainer}>
                         <Timer />
                     </div>
                 </div>
-                <div className='right-side'>
+                <div className={styles.rightSide}>
                     <NewsCard />
                 </div>
-                <button className='browse-button' onClick={handleBrowse}>Browse</button>
+                <button className={styles.browseButton} onClick={handleBrowse}>Browse</button>
             </div>
         )
     }

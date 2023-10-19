@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './Notes.css'
+import styles from './Notes.module.css'
 
 function Notes() {
 
@@ -22,9 +22,9 @@ function Notes() {
     }
 
     return (
-        <div className='Notes'>
-            <h3 className='title'>All notes</h3>
-            <textarea className='notes-content' value={notes} onChange={getNotes} >
+        <div className={styles.Notes}>
+            <h3 className={styles.title}>All notes</h3>
+            <textarea className={styles.notesContent} value={notes} onChange={getNotes} >
             </textarea>
         </div>
     )

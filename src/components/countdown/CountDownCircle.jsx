@@ -1,6 +1,6 @@
 import React from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import "./CountDownCircle.css";
+import styles from "./CountDownCircle.module.css";
 
 import alarmRingtone from '../../assets/audio/alarm-ringtone.mp3'
 
@@ -38,7 +38,7 @@ export default function CountDownCircle(props) {
     const audio = new Audio(alarmRingtone)
 
     return (
-        <div className="CountDownCircle">
+        <div className={styles.CountDownCircle}>
             <CountdownCircleTimer
                 {...timerProps}
                 key={props.totalTime}
@@ -49,7 +49,7 @@ export default function CountDownCircle(props) {
                 }}
             >
                 {({ remainingTime }) => (
-                    <span className="remaining-time">
+                    <span className={styles.remainingTime}>
                         {renderTime(remainingTime)}
                     </span>
                 )}

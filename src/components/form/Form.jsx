@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Form.css'
+import styles from './Form.module.css'
 // Hook to redirect to another page
 import { useNavigate } from 'react-router-dom';
 
@@ -144,8 +144,8 @@ function Form() {
     // })
 
     return (
-        <div className='Form'>
-            <div className='form-heading'>
+        <div className={styles.Form}>
+            <div className={styles.formHeading}>
                 <h1>Super app</h1>
                 <p>Create your new account</p>
             </div>
@@ -162,7 +162,7 @@ function Form() {
                         style={{ border: (errors.name) ? '1px solid red' : '' }}
                     />
                     {
-                        <p className='error-message'>{errors.name}</p>
+                        <p className={styles.errorMessage}>{errors.name}</p>
                     }
                 </div>
                 <div>
@@ -177,7 +177,7 @@ function Form() {
                         style={{ border: (errors.userName) ? '1px solid red' : '' }}
                     />
                     {
-                        <p className='error-message'>{errors.userName}</p>
+                        <p className={styles.errorMessage}>{errors.userName}</p>
                     }
                 </div>
                 <div>
@@ -192,7 +192,7 @@ function Form() {
                         style={{ border: (errors.email) ? '1px solid red' : '' }}
                     />
                     {
-                        <p className='error-message'>{errors.email}</p>
+                        <p className={styles.errorMessage}>{errors.email}</p>
                     }
                 </div>
                 <div>
@@ -207,11 +207,11 @@ function Form() {
                         style={{ border: (errors.mobile) ? '1px solid red' : '' }}
                     />
                     {
-                        <p className='error-message'>{errors.mobile}</p>
+                        <p className={styles.errorMessage}>{errors.mobile}</p>
                     }
                 </div>
-                <div className='dataPermission-block'>
-                    <div className='dataPermission'>
+                <div className={styles.dataPermissionBlock}>
+                    <div className={styles.dataPermission}>
                         <input
                             type="checkbox"
                             id="dataPermission"
@@ -225,12 +225,12 @@ function Form() {
                         </label>
                     </div>
                     {
-                        <p className='error-message'>{errors.dataPermission}</p>
+                        <p className={styles.errorMessage}>{errors.dataPermission}</p>
                     }
                 </div>
-                <button id='signUp' type='submit'>SIGN UP</button>
+                <button id={styles.signUp} type='submit'>SIGN UP</button>
             </form>
-            <div className='terms-and-policy'>
+            <div className={styles.termsAndPolicy}>
                 <p>By clicking on Sign up. you agree to Superapp <span>Terms and Conditions of Use</span></p>
                 <p>To learn more about how Superapp collects, uses, shares and protects your personal data please head Superapp <span>Privacy Policy</span></p>
             </div>

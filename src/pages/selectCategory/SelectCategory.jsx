@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './SelectCategory.css'
+import styles from './SelectCategory.module.css'
 
 import errorSign from "../../assets/images/warning-sign.svg"
 
@@ -61,16 +61,16 @@ function SelectCategory() {
     }
 
     return (
-        <div className='SelectCategory'>
-            <div className='left-side'>
-                <h1 className='app-name'>Super app</h1>
-                <h1 className='caption'>Choose your entertainment category</h1>
-                <div className='selected-category-list'>
+        <div className={styles.SelectCategory}>
+            <div className={styles.leftSide}>
+                <h1 className={styles.appName}>Super app</h1>
+                <h1 className={styles.caption}>Choose your entertainment category</h1>
+                <div className={styles.selectedCategoryList}>
                     {
                         selectedCategory.map(category =>
-                            <div key={category} className='selected-category'>
+                            <div key={category} className={styles.selectedCategory}>
                                 {category}
-                                <div className='deselect-button' id={category} onClick={removeCategory} >X</div>
+                                <div className={styles.deselectButton} id={category} onClick={removeCategory} >X</div>
                             </div>
                         )
                     }
@@ -78,22 +78,22 @@ function SelectCategory() {
                 {
                     error &&
                     selectedCategory.length < 3 &&
-                    <p className='minimum-error'>
+                    <p className={styles.minimumError}>
                         <img src={errorSign} alt='error sign' />
                         Minimum 3 category required
                     </p>
                 }
             </div>
 
-            <div className='right-side'>
-                <div className='category-list'>
+            <div className={styles.rightSide}>
+                <div className={styles.categoryList}>
                     {
                         defaultCategory.map(category =>
                             <CategoryCard key={category.value} {...category} selectCategory={changeState} />
                         )
                     }
                 </div>
-                <button className='next-page-button' onClick={handleNextPage}>Next Page</button>
+                <button className={styles.nextPageButton} onClick={handleNextPage}>Next Page</button>
             </div>
         </div>
     )

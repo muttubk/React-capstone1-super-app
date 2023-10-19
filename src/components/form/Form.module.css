@@ -9,11 +9,11 @@
     font-family: 'DM Sans', sans-serif;
 }
 
-.form-heading{
+.formHeading{
     text-align: center;
 }
 
-.form-heading h1{
+.formHeading h1{
     color: rgba(114, 219, 115, 1);
     font-family: 'Single Day', cursive;
     font-size: 2.5rem;
@@ -21,7 +21,7 @@
     margin-bottom: 10px;
 }
 
-.form-heading p{
+.formHeading p{
     margin-bottom: 40px;
     font-size: 0.9rem;
 }
@@ -50,11 +50,6 @@ input::placeholder{
     color: rgba(124, 124, 124, 1);
 }
 
-#mobile::-webkit-inner-spin-button{
-    -webkit-appearance: none;
-    /* margin: 0; */
-}
-
 .dataPermission{
     font-size: 0.8rem;
     color: rgba(124, 124, 124, 1);
@@ -66,7 +61,7 @@ input::placeholder{
     width: 12px;
 }
 
-.dataPermission-block{
+.dataPermissionBlock{
     margin: 5px 0;
 }
 
@@ -83,23 +78,23 @@ input::placeholder{
     letter-spacing: 1px;
 }
 
-.terms-and-policy{
+.termsAndPolicy{
     font-size: 0.7rem;
     color: rgba(124, 124, 124, 1);
     letter-spacing: 0.2px;
     font-family: 'Roboto', sans-serif;
 }
-.terms-and-policy span{
+.termsAndPolicy span{
     color: rgba(114, 219, 115, 1);
 }
-.terms-and-policy p{
+.termsAndPolicy p{
     line-height: 1rem;
 }
-.terms-and-policy p:first-child{
+.termsAndPolicy p:first-child{
     margin: 15px 0;
 }
 
-.error-message{
+.errorMessage{
     font-size: 0.8rem;
     font-weight: 400;
     font-family: 'DM Sans', sans-serif;

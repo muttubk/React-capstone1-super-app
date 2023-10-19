@@ -18,7 +18,7 @@
     margin-bottom: 15px;
 }
 
-.notes-content{
+.notesContent{
     height: 100%;
     width: 100%;
     border: none;
@@ -34,11 +34,11 @@
     line-height: 150%;
 }
 
-.notes-content::-webkit-scrollbar{
+.notesContent::-webkit-scrollbar{
     border-radius: 20px;
     width: 10px;
 }
-.notes-content::-webkit-scrollbar-thumb{
+.notesContent::-webkit-scrollbar-thumb{
     background-color: rgba(255, 230, 166, 1);
     border-radius: 20px;
 }

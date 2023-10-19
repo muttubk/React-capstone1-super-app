@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './NewsCard.css'
+import styles from './NewsCard.module.css'
 
 import newsBackground from '../../assets/images/newsBackground.png'
 
@@ -30,15 +30,15 @@ function NewsCard() {
         <>
             {
                 newsData ?
-                    <div className='NewsCard'>
-                        <div className='news-background-image'>
+                    <div className={styles.NewsCard}>
+                        <div className={styles.newsBackgroundImage}>
                             <img src={newsData.image_url ?
                                 newsData.image_url :
                                 newsBackground} alt=''
                             />
-                            <div className='news-info'>
-                                <h2 className='title'>{newsData.title}</h2>
-                                <p className='time'>
+                            <div className={styles.newsInfo}>
+                                <h2 className={styles.title}>{newsData.title}</h2>
+                                <p className={styles.time}>
                                     {time.toLocaleDateString().replaceAll('/', '-')}
                                     {' | '}
                                     {(time.getHours() % 12) < 10 ? '0' + (time.getHours() % 12) : (time.getHours() % 12)}
@@ -48,13 +48,13 @@ function NewsCard() {
                                 </p>
                             </div>
                         </div>
-                        <div className='news-content'>
+                        <div className={styles.newsContent}>
                             <p>
                                 {newsData.content}
                             </p>
                         </div>
                     </div> :
-                    <div className='loading'>Loading...</div>
+                    <div className={styles.loading}>Loading...</div>
             }
         </>
     )
